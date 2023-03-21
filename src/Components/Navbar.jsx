@@ -1,5 +1,3 @@
-import React from "react";
-
 function Navbar({ filterNames }) {
   return (
     <nav className="Navbar">
