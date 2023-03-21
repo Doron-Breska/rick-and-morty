@@ -8,6 +8,7 @@ function Characters() {
   const [data, SetData] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
 
+  //NOTE fixed broken useEffect
   useEffect(() => {
     const getData = async () => {
       const response = await fetch(
