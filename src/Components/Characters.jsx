@@ -35,6 +35,17 @@ function Characters() {
     result.filter((item) =>
       item.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
+  const [showModal, setShowModal] = useState(null);
+
+  // Function to handle opening the modal
+  const openModal = (index) => {
+    setShowModal(index);
+  };
+
+  // Function to handle closing the modal
+  const closeModal = () => {
+    setShowModal(null);
+  };
 
   return (
     <>
@@ -42,21 +53,49 @@ function Characters() {
       <div className="Container">
         {/* ************* */}
         {filteredResults
-          ? filteredResults.map(({ name, image }, index) => (
-              <div key={index} className="flip-card">
-                <div className="flip-card-inner">
-                  <div className="flip-card-front">
-                    <img src={image} alt={`pic of ${name}`} />
+          ? filteredResults.map(
+              ({ name, image, status, species, id }, index) => (
+                <div key={index}>
+                  <div className="flip-card">
+                    <div className="flip-card-inner">
+                      <div className="flip-card-front">
+                        <img src={image} alt={`pic of ${name}`} />
+                      </div>
+                      <div className="flip-card-back">
+                        <p>{name}</p>
+                        <button onClick={() => openModal(id)} className="btn">
+                          LEARN MORE!
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flip-card-back">
-                    <p>{name}</p>
-                    <button className="btn">LEARN MORE</button>
+                  <div
+                    id="myModal"
+                    className={
+                      showModal === id ? "modal show-modal" : "modal hide-modal"
+                    }
+                  >
+                    <div className="modal-content">
+                      <button onClick={closeModal} className="close">
+                        close
+                      </button>
+                      <h2>{name}</h2>
+                      <div>
+                        <img src={image} alt="pic of the x" />
+                      </div>
+                      <div>
+                        <p>Status: {status}</p>
+                      </div>
+                      <div>
+                        <p>Species: {species}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))
+              )
+            )
           : result &&
-            result.map(({ name, image }, index) => (
+            result.map(({ name, image, status, species, id }, index) => (
               <div key={index} className="flip-card">
                 <div className="flip-card-inner">
                   <div className="flip-card-front">
@@ -64,7 +103,32 @@ function Characters() {
                   </div>
                   <div className="flip-card-back">
                     <p>{name}</p>
-                    <button className="btn">LEARN MORE</button>
+                    <button onClick={openModal} id="myBtn" className="btn">
+                      LEARN MORE!
+                    </button>
+                    <p>test</p>
+                    <div
+                      id="myModal"
+                      className={
+                        showModal ? "modal show-modal" : "modal hide-modal"
+                      }
+                    >
+                      <div className="modal-content">
+                        <button onClick={closeModal} className="close">
+                          close
+                        </button>
+                        <h2>{name}</h2>
+                        <div>
+                          <img src={image} alt="pic of the x" />
+                        </div>
+                        <div>
+                          <p>{status}</p>
+                        </div>
+                        <div>
+                          <p>{species}</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

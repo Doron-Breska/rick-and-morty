@@ -10,6 +10,7 @@
 .Navbar {
   background-color: #a8004e;
   margin-bottom: 3rem;
+  text-align: center;
 
 }
 .Navbar input[type="search"] { 
@@ -43,6 +44,7 @@ margin-top: 1rem;
 font-size: 2rem;
 display: flex;
 justify-content: space-between;
+margin-bottom: 0.5 rem;
 }
 
 
@@ -127,7 +129,7 @@ a {
 
 /* The Modal (background) */
 .modal {
-  display: none;
+  /* display: none; */
   /* Hidden by default */
   position: fixed;
   /* Stay in place */
@@ -148,6 +150,12 @@ a {
   background-color: rgba(0, 0, 0, 0.4);
   /* Black w/ opacity */
 }
+.hide-modal {
+  display:none;
+}
+.show-modal {
+  display:block;
+}
 
 /* Modal Content */
 .modal-content {
@@ -156,6 +164,7 @@ a {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  text-align: center;
 }
 
 /* The Close Button */
