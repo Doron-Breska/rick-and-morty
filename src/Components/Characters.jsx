@@ -12,7 +12,7 @@ function Characters() {
   useEffect(() => {
     const getData = async () => {
       const response = await fetch(
-        `http://rickandmortyapi.com/api/character/?page=${num}`
+        `https://rickandmortyapi.com/api/character/?page=${num}`
       );
       const data = await response.json();
       SetData(data);
