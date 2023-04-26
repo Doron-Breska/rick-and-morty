@@ -79,6 +79,7 @@ function Characters() {
                       <button onClick={closeModal} className="close">
                         close
                       </button>
+                      <br />
                       <h2>{name}</h2>
                       <div>
                         <img src={image} alt="pic of the x" />
@@ -117,6 +118,7 @@ function Characters() {
                         <button onClick={closeModal} className="close">
                           close
                         </button>
+                        <br />
                         <h2>{name}</h2>
                         <div>
                           <img src={image} alt="pic of the x" />
