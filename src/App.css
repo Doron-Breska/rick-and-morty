@@ -180,6 +180,7 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
-h2 {
-  text-align: center;
+
+.page-btn{
+  margin-bottom: 0.7rem;
 }
